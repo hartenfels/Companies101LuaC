@@ -1,0 +1,148 @@
+\documentclass[12pt,slidestop]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\beamertemplatenavigationsymbolsempty
+\usetheme{Boadilla}
+\usecolortheme{whale}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+\defbeamertemplate*{footline}{my infolines theme} {
+\leavevmode
+\hbox{
+\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+\usebeamerfont{author in head/foot}\insertshortauthor
+\end{beamercolorbox}
+\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}
+\usebeamerfont{title in head/foot}\insertshorttitle
+\end{beamercolorbox}
+\begin{beamercolorbox}[wd=.309\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}
+\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+\end{beamercolorbox}}
+\vskip0pt
+}
+\newcounter{FrameCounter}
+\newcommand{\nextframe}[0]{\stepcounter{FrameCounter}}
+\newcommand{\framecount}[1]{\frametitle{\arabic{FrameCounter}. {#1}}}
+\newcommand{\fitem}{\vfill\item}
+
+\title{Contribution:C}
+\subtitle{Not C/C++}
+\author{Carsten Hartenfels}
+\date{2014-05-19}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+    \begin{center}
+        \url{http://101companies.org/wiki/Contribution:c}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Contents}
+    \pause
+    \begin{enumerate}[<+->]
+        \fitem Overview
+        \fitem ``Object'' Model
+        \fitem Graph Traversal
+        \fitem Parsing and Unparsing
+    \end{enumerate}
+\end{frame}
+
+\nextframe
+\begin{frame}
+    \framecount{Overview}\pause
+    \begin{itemize}[<+->]
+        \fitem Implementation Language: C
+        \fitem Building and Testing: CMake
+        \fitem Features:
+        \begin{itemize}[<+->]
+            \fitem Hierarchical Company
+            \fitem Cut, Depth, Median, Total
+            \fitem Parsing, Unparsing
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\nextframe
+\begin{frame}
+    \framecount{``Object'' Model}\pause
+    \begin{itemize}[<+->]
+        \fitem No OO Support
+        \fitem Instead: Structured Programming
+        \begin{itemize}
+            \fitem State: Plain Old Data
+            \fitem Operations: Functions with Pointers
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\nextframe
+\begin{frame}
+    \framecount{Graph Traversal}\pause
+    \begin{itemize}[<+->]
+        \fitem Most Features Traverse Object Graph
+        \fitem Solution: Visitor Pattern
+        \begin{itemize}
+            \fitem Common, Idiomatic C
+            \fitem Function and Void Pointers
+            \fitem Used for Cut, Depth, Median, Total, Parsing, Unparsing 
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\nextframe
+\begin{frame}
+    \framecount{Parsing and Unparsing}\pause
+    \begin{itemize}[<+->]
+        \fitem Huge Library Support
+        \fitem Still Complicated in C:
+        \begin{itemize}[<+->]
+            \fitem Lack of Containers
+            \fitem No Reflection
+            \fitem String Handling is Bonkers
+        \end{itemize}
+        \fitem Solution: Just Use Another Language
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \framecount{Parsing and Unparsing}\pause
+    \begin{itemize}[<+->]
+        \fitem Lua 
+        \begin{itemize}[<+->]
+            \fitem Embedded Scripting Language in C89
+            \fitem Stack-Based C Interface
+            \fitem ``Table'' Container (Hash/Array Combination)
+            \fitem Conversion to JSON, XML, YAML etc.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \framecount{Parsing and Unparsing}\pause
+    \begin{itemize}[<+->]
+        \fitem Parsing:
+        \begin{itemize}
+            \fitem Traverse Lua Table
+            \fitem Calls to C to Build Object Graph
+        \end{itemize}
+        \fitem Unparsing:
+        \begin{itemize}
+            \fitem Traverse Object Graph
+            \fitem Calls to Lua to Build Table
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\nextframe
+\begin{frame}
+    \begin{center}\vspace{70pt}
+        {\Huge Thank You All For Listening}\\
+        \vspace{54.35pt}
+        \url{http://101companies.org/wiki/Contribution:c}
+    \end{center}
+\end{frame}
+\end{document}
+
